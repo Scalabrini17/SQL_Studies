@@ -195,3 +195,248 @@ Ex.:
 ```
 
 Como pode ser observado para que pudesse relacionar uma tabela a outra foi adicionado um campo a essa tabela com o REFERENCES que significa referenciar, logo após o REFERENCES se coloca a tabela com que se vai relacionar, e o campo (normalmente por padrão se utiliza o campo de ID que leva o PRIMARY KEY, assim como no exemplo).
+
+## Consultas e Funções SQL
+
+### SELECT
+
+```sql
+SELECT * FROM userTeste;
+
+/*O SELECT é utilizado para consultar registros dentro de uma tabela*/
+/*O * significa que todas as colunas da tabela serão exibidas*/
+```
+
+### DISTINCT
+
+```sql
+SELECT DISTINCT nome FROM userTeste;
+
+/*O DISTINCT remove valores duplicados da consulta*/
+```
+
+### AS
+
+```sql
+SELECT nome AS Nome_Usuario
+FROM userTeste;
+
+/*O AS serve para criar apelidos para colunas ou tabelas*/
+```
+
+### IN
+
+```sql
+SELECT *
+FROM userTeste
+WHERE userID IN (1,2,3);
+
+/*O IN permite verificar se um valor está dentro de uma lista*/
+```
+
+### BETWEEN
+
+```sql
+SELECT *
+FROM userTeste
+WHERE userID BETWEEN 1 AND 5;
+
+/*O BETWEEN serve para pesquisar valores dentro de um intervalo*/
+```
+
+### IS NULL
+
+```sql
+SELECT *
+FROM userTeste
+WHERE email IS NULL;
+
+/*Retorna registros onde o campo está vazio (NULL)*/
+```
+
+### IS NOT NULL
+
+```sql
+SELECT *
+FROM userTeste
+WHERE email IS NOT NULL;
+
+/*Retorna registros onde o campo possui valor*/
+```
+
+## Funções de Agregação
+
+### COUNT()
+
+```sql
+SELECT COUNT(*)
+FROM userTeste;
+
+/*Conta a quantidade de registros encontrados*/
+```
+
+### SUM()
+
+```sql
+SELECT SUM(valor_total)
+FROM pedidos;
+
+/*Realiza a soma dos valores encontrados*/
+```
+
+### AVG()
+
+```sql
+SELECT AVG(valor_total)
+FROM pedidos;
+
+/*Calcula a média dos valores encontrados*/
+```
+
+### MAX()
+
+```sql
+SELECT MAX(valor_total)
+FROM pedidos;
+
+/*Retorna o maior valor encontrado*/
+```
+
+### MIN()
+
+```sql
+SELECT MIN(valor_total)
+FROM pedidos;
+
+/*Retorna o menor valor encontrado*/
+```
+
+## GROUP BY
+
+```sql
+SELECT usuarioID, COUNT(*)
+FROM pedidos
+GROUP BY usuarioID;
+
+/*Agrupa registros que possuem o mesmo valor*/
+```
+
+## HAVING
+
+```sql
+SELECT usuarioID, COUNT(*)
+FROM pedidos
+GROUP BY usuarioID
+HAVING COUNT(*) > 1;
+
+/*O HAVING funciona como um WHERE para grupos criados pelo GROUP BY*/
+```
+
+## JOINS
+
+### INNER JOIN
+
+```sql
+SELECT *
+FROM pedidos
+INNER JOIN userTeste
+ON pedidos.usuarioID = userTeste.userID;
+
+/*Retorna apenas registros que possuem correspondência nas duas tabelas*/
+```
+
+#### Exemplo
+
+| Usuário Existe | Pedido Existe | Retorna |
+| -------------- | ------------- | ------- |
+| Sim            | Sim           | Sim     |
+| Sim            | Não           | Não     |
+| Não            | Sim           | Não     |
+
+---
+
+### LEFT JOIN
+
+```sql
+SELECT *
+FROM userTeste
+LEFT JOIN pedidos
+ON userTeste.userID = pedidos.usuarioID;
+
+/*Retorna todos os registros da tabela da esquerda*/
+/*Mesmo que não exista correspondência na tabela da direita*/
+```
+
+#### Exemplo
+
+| Usuário Existe | Pedido Existe | Retorna |
+| -------------- | ------------- | ------- |
+| Sim            | Sim           | Sim     |
+| Sim            | Não           | Sim     |
+| Não            | Sim           | Não     |
+
+---
+
+### RIGHT JOIN
+
+```sql
+SELECT *
+FROM userTeste
+RIGHT JOIN pedidos
+ON userTeste.userID = pedidos.usuarioID;
+
+/*Retorna todos os registros da tabela da direita*/
+```
+
+#### Exemplo
+
+| Usuário Existe | Pedido Existe | Retorna |
+| -------------- | ------------- | ------- |
+| Sim            | Sim           | Sim     |
+| Sim            | Não           | Não     |
+| Não            | Sim           | Sim     |
+
+---
+
+### FULL JOIN
+
+```sql
+SELECT *
+FROM userTeste
+FULL JOIN pedidos
+ON userTeste.userID = pedidos.usuarioID;
+
+/*Retorna todos os registros das duas tabelas*/
+```
+
+#### Exemplo
+
+| Usuário Existe | Pedido Existe | Retorna |
+| -------------- | ------------- | ------- |
+| Sim            | Sim           | Sim     |
+| Sim            | Não           | Sim     |
+| Não            | Sim           | Sim     |
+
+## Ordem Recomendada de Estudo
+
+1. SELECT
+2. DISTINCT
+3. WHERE
+4. ORDER BY
+5. LIMIT
+6. LIKE
+7. ILIKE
+8. IN
+9. BETWEEN
+10. COUNT
+11. SUM
+12. AVG
+13. MAX
+14. MIN
+15. GROUP BY
+16. HAVING
+17. INNER JOIN
+18. LEFT JOIN
+19. RIGHT JOIN
+20. FULL JOIN
+
