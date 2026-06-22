@@ -66,4 +66,8 @@ RIGHT JOIN produtos ON itens_pedido.id_produto = produtos.id_produto
 WHERE itens_pedido.id_produto IS NULL;
 
 --6
-
+SELECT SUM(itens_pedido.quantidade), categorias
+FROM itens_pedido
+INNER JOIN pedidos ON itens_pedido.id_pedido = pedidos.id_pedido
+INNER JOIN produtos ON itens_pedido.id_produto = produtos.id_produto
+INNER JOIN categorias ON produtos.id_categoria = categorias.id_categoria;
