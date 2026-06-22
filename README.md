@@ -441,5 +441,5 @@ ON userTeste.userID = pedidos.usuarioID;
 20. FULL JOIN
 
 ## Autor
-###Scalabrini
+### Scalabrini.
 (E Chat GPT: Essa ultima parte de consultas e funções foi feita com ajuda da IA)
