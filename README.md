@@ -440,3 +440,6 @@ ON userTeste.userID = pedidos.usuarioID;
 19. RIGHT JOIN
 20. FULL JOIN
 
+## Autor
+Scalabrini
+(E Chat GPT: Essa ultima parte de consultas e funções foi feita com ajuda da IA)
