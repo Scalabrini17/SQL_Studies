@@ -440,6 +440,9 @@ ON userTeste.userID = pedidos.usuarioID;
 19. RIGHT JOIN
 20. FULL JOIN
 
+# Tech Hub
+Foi um estudo que fiz criando tabelas dentro de um banco de dados, populando essas tabelas e também fazendo pesquisas 
+
 ## Autor
 
 ### Scalabrini.
