@@ -1,4 +1,4 @@
-# Anotações PostgreSQL
+# PostgreSQL
 
 ## Tipos de Dados em PostgreSQL
 
