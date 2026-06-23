@@ -441,7 +441,7 @@ ON userTeste.userID = pedidos.usuarioID;
 20. FULL JOIN
 
 # [Tech Hub](TechHub/)
-Foi um estudo que fiz baseado nas anotações que fiz a cima. Criando tabelas dentro de um banco de dados, populando essas tabelas e também fazendo pesquisas 
+Um estudo feito com base nas minhas anotações feitas a cima. Criando tabelas dentro de um banco de dados, populando essas tabelas e também fazendo pesquisas 
 
 ## Autor
 
