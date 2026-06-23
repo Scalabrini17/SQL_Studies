@@ -417,7 +417,7 @@ ON userTeste.userID = pedidos.usuarioID;
 | Sim            | Não           | Sim     |
 | Não            | Sim           | Sim     |
 
-## Ordem Recomendada de Estudo
+<!--## Ordem Recomendada de Estudo
 
 1. SELECT
 2. DISTINCT
@@ -438,7 +438,7 @@ ON userTeste.userID = pedidos.usuarioID;
 17. INNER JOIN
 18. LEFT JOIN
 19. RIGHT JOIN
-20. FULL JOIN
+20. FULL JOIN-->
 
 # [Tech Hub](TechHub/)
 Um estudo feito com base nas minhas anotações feitas a cima. Criando tabelas dentro de um banco de dados, populando essas tabelas e também fazendo pesquisas 
