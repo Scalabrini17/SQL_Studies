@@ -107,4 +107,4 @@ SELECT produtos.nome_produto, SUM(itens_pedido.quantidade) AS quantidadeVendida
 FROM itens_pedido
 INNER JOIN produtos ON produtos.id_produto = itens_pedido.id_produto
 GROUP BY produtos.nome_produto
-ORDER BY quantidadeVendida DESC;
+ORDER BY quantidadeVendida DESC; 
