@@ -95,3 +95,16 @@ GROUP BY clientes.nome_cliente
 HAVING COUNT(pedidos.id_pedido) > 1
 
 --11
+SELECT clientes.nome_cliente, SUM(pedidos.valor_total) AS ValorTotal
+FROM pedidos
+INNER JOIN clientes ON clientes.id_cliente = pedidos.id_cliente
+GROUP BY clientes.nome_cliente
+ORDER BY ValorTotal DESC
+LIMIT 3;
+
+--12
+SELECT produtos.nome_produto, SUM(itens_pedido.quantidade) AS quantidadeVendida
+FROM itens_pedido
+INNER JOIN produtos ON produtos.id_produto = itens_pedido.id_produto
+GROUP BY produtos.nome_produto
+ORDER BY quantidadeVendida DESC;
