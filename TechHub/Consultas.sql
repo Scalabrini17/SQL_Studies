@@ -71,3 +71,11 @@ FROM itens_pedido
 INNER JOIN pedidos ON itens_pedido.id_pedido = pedidos.id_pedido
 INNER JOIN produtos ON itens_pedido.id_produto = produtos.id_produto
 INNER JOIN categorias ON produtos.id_categoria = categorias.id_categoria;
+
+--7
+SELECT categorias.nome_categoria, SUM(pedidos.valor_total)
+FROM itens_pedido 
+INNER JOIN pedidos ON pedidos.id_pedido = itens_pedido.id_pedido
+INNER JOIN produtos ON produtos.id_produto = itens_pedido.id_produto
+INNER JOIN categorias ON categorias.id_categoria = produtos.id_categoria
+GROUP BY categorias.nome_categoria;
