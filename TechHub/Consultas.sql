@@ -66,11 +66,12 @@ RIGHT JOIN produtos ON itens_pedido.id_produto = produtos.id_produto
 WHERE itens_pedido.id_produto IS NULL;
 
 --6
-SELECT SUM(itens_pedido.quantidade), categorias
+SELECT categorias.nome_categoria, SUM(itens_pedido.quantidade) AS QuantidadePedidos
 FROM itens_pedido
 INNER JOIN pedidos ON itens_pedido.id_pedido = pedidos.id_pedido
 INNER JOIN produtos ON itens_pedido.id_produto = produtos.id_produto
-INNER JOIN categorias ON produtos.id_categoria = categorias.id_categoria;
+INNER JOIN categorias ON produtos.id_categoria = categorias.id_categoria
+GROUP BY categorias.nome_categoria;
 
 --7
 SELECT categorias.nome_categoria, SUM(pedidos.valor_total)
@@ -79,3 +80,18 @@ INNER JOIN pedidos ON pedidos.id_pedido = itens_pedido.id_pedido
 INNER JOIN produtos ON produtos.id_produto = itens_pedido.id_produto
 INNER JOIN categorias ON categorias.id_categoria = produtos.id_categoria
 GROUP BY categorias.nome_categoria;
+
+--8
+SELECT * FROM pedidos WHERE status != 'PAGO';
+
+--9
+SELECT * FROM pedidos WHERE status = 'ENVIADO';
+
+--10
+SELECT clientes.nome_cliente, COUNT(pedidos.id_pedido) AS QuantidadeVezesCompradas
+FROM pedidos 
+INNER JOIN clientes ON clientes.id_cliente = pedidos.id_cliente
+GROUP BY clientes.nome_cliente
+HAVING COUNT(pedidos.id_pedido) > 1
+
+--11
